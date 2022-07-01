@@ -1,0 +1,14 @@
+# Configs for the buildscript
+
+marlin_repo:
+  url: https://github.com/josuablejeru/Marlin
+  branch: bugfix-2.1.x
+  build_branch: ender-3v2-BigTreeTech-SKR-Mini-E3-v3
+
+config_url:
+  configuration_h:
+    url: https://raw.githubusercontent.com/MarlinFirmware/Configurations/import-2.1.x/config/examples/Creality/Ender-3%20V2/BigTreeTech%20SKR%20Mini%20E3%20v3/CrealityUI/Configuration.h
+    name: Configuration.h
+  configuration_adv_h:
+    url: https://raw.githubusercontent.com/MarlinFirmware/Configurations/import-2.1.x/config/examples/Creality/Ender-3%20V2/BigTreeTech%20SKR%20Mini%20E3%20v3/CrealityUI/Configuration_adv.h
+    name: Configuration_adv.h
