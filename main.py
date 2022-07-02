@@ -2,7 +2,6 @@
 from marlin_build_script.logger import log
 from typing import Dict, List
 import yaml
-from rich import print
 import git
 import requests
 import os
@@ -65,6 +64,7 @@ def main():
     build_branch = config.get('marlin_repo').get("build_branch")
     configuration_h = config.get('config_url').get("configuration_h")
     configuration_adv_h = config.get('config_url').get("configuration_adv_h")
+    platformio = config.get('config_url').get('platformio')
 
     ### checkout the project ###
     log.info("checkout Marlin")
@@ -74,10 +74,12 @@ def main():
     create_build_branch(marlin_repo, branch, build_branch)
 
     log.info("download the provided custom Configuration files")
-    download_configfiles(urls=[configuration_h, configuration_adv_h])
+    download_configfiles(
+        urls=[configuration_h, configuration_adv_h, platformio])
 
     log.info("move config files inside of Marlin")
     move_files([configuration_h.get('name'), configuration_adv_h.get('name')])
+    move_files([platformio.get('name')], "./Marlin")
 
 
 if __name__ == "__main__":

@@ -6,9 +6,56 @@ marlin_repo:
   build_branch: ender-3v2-BigTreeTech-SKR-Mini-E3-v3
 
 config_url:
+  platformio:
+    url: https://raw.githubusercontent.com/bigtreetech/BIGTREETECH-SKR-mini-E3/master/firmware/V3.0/Marlin/Ender%203/BL%20Touch/platformio.ini
+    name: platformio.ini
+  # Configuration for BOARD_BTT_SKR_MINI_E3_V3_0 with BLTouch
   configuration_h:
-    url: https://raw.githubusercontent.com/MarlinFirmware/Configurations/import-2.1.x/config/examples/Creality/Ender-3%20V2/BigTreeTech%20SKR%20Mini%20E3%20v3/CrealityUI/Configuration.h
+    url: https://raw.githubusercontent.com/MarlinFirmware/Configurations/bugfix-2.1.x/config/examples/Creality/Ender-3%20V2/BigTreeTech%20SKR%20Mini%20E3%20v3/CrealityUI/Configuration.h
     name: Configuration.h
+  # Configuration for BOARD_BTT_SKR_MINI_E3_V3_0 with BLTouch
   configuration_adv_h:
-    url: https://raw.githubusercontent.com/MarlinFirmware/Configurations/import-2.1.x/config/examples/Creality/Ender-3%20V2/BigTreeTech%20SKR%20Mini%20E3%20v3/CrealityUI/Configuration_adv.h
+    url: https://raw.githubusercontent.com/MarlinFirmware/Configurations/bugfix-2.1.x/config/examples/Creality/Ender-3%20V2/BigTreeTech%20SKR%20Mini%20E3%20v3/CrealityUI/Configuration_adv.h
     name: Configuration_adv.h
+
+
+custom_settings:
+  configuration_h:
+    - name: CUSTOM_MACHINE_NAME
+      value: "Ender-3v2 - BTT V3 - BLTouch"
+
+    - name: SERIAL_PORT
+      ## this value is by default '1' but because the stock ender3v2 display needs custom wiring
+      value: -1  
+
+    - name: S_CURVE_ACCELERATION
+      enabled: true
+
+    - name: LEVEL_BED_CORNERS
+      enabled: true
+
+    - name: INDIVIDUAL_AXIS_HOMING_MENU
+      enabled: true
+    
+    ### BLTouch config ###
+    - name: BLTOUCH
+      enabled: true
+
+    - name: Z_MIN_PROBE_ENDSTOP_INVERTING
+      value: false  ## Not a mistake
+    
+    - name: NOZZLE_TO_PROBE_OFFSET 
+      value: { -40, -7, 0 }
+
+    - name: AUTO_BED_LEVELING_BILINEAR
+      enabled: true
+
+    - name: Z_SAFE_HOMING
+      enabled: true
+    
+    - name: MIN_SOFTWARE_ENDSTOP_Z
+      enabled: false
+  
+  configuration_adv_h:
+    - name: BLTOUCH_DELAY 500
+      enabled: true
