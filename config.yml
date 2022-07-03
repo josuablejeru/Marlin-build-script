@@ -1,5 +1,12 @@
 # Configs for the buildscript
 
+
+# Because this build script uses git to interact with your own Fork
+# you need to provide a Author name and email address
+git_config:
+  author: Josua Blejeru
+  email: josua@blejeru.com
+
 marlin_repo:
   url: https://github.com/josuablejeru/Marlin
   branch: bugfix-2.1.x
