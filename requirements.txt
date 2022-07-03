@@ -2,3 +2,4 @@ GitPython
 requests
 pyyaml
 rich
+pydantic
